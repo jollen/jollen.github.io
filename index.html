@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Game Bubble</title>
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/main.css">
+	<script src='javascripts/jquery/dist/jquery.min.js'></script>
+	<script src='javascripts/jquery-tmpl/jquery.tmpl.min.js'></script>
+</head>
+<body>
+	
+<script id='postTemplate' type='text/x-jquery-tmpl'>
+	<div class="row">
+	    <div class="col-lg-5">
+	        <div class="media">
+	            <a class="pull-left" href="#">
+	                <img class="media-object dp img-circle" src="http://lorempixel.com/100/100/" style="width: 100px;height:100px;">
+	            </a>
+	            <div class="media-body">
+	                <h4 class="media-heading">${subject}</h4>
+	                <h5>${date}</h5>
+	                <hr style="margin:8px auto">
+
+	                <span class="label label-default">HTML5/CSS3</span>
+	                <span class="label label-default">jQuery</span>
+	                <span class="label label-info">CakePHP</span>
+	                <span class="label label-default">Android</span>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</script>
+
+<div id="content">
+</div>
+
+<script src='javascripts/main.js'></script>
+
+</body>
+</html>
