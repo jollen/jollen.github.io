@@ -14,6 +14,8 @@
 
     <!-- Custom CSS for the '4 Col Portfolio' Template -->
     <link href="stylesheets/4-col-portfolio.css" rel="stylesheet">
+
+    <link href="styles/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,6 +28,22 @@
 	                <h5>${date}</h5>
 	                <button id="subject" data-id="${id}" class="btn btn-success">Read More</button>
             </div>
+</script>
+
+<script id='chatTemplate' type='text/x-jquery-tmpl'>
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                            <img src="http://placehold.it/50/55C1E7/fff&amp;text=U" alt="User Avatar" class="img-circle">
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">${username}</strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+                                </div>
+                                <p>
+                                    ${message}
+                                </p>
+                            </div>
+                        </li>
 </script>
 
     <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
@@ -56,7 +74,64 @@
         <!-- /.container -->
     </nav>
 
+
     <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">最新訊息
+                    <small>Showcase Your Work</small>
+                </h1>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-comment"></span> Chat
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </button>
+                            <ul class="dropdown-menu slidedown">
+                                <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-refresh">
+                                </span>Refresh</a></li>
+                                <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-ok-sign">
+                                </span>Available</a></li>
+                                <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-remove">
+                                </span>Busy</a></li>
+                                <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-time"></span>
+                                    Away</a></li>
+                                <li class="divider"></li>
+                                <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-off"></span>
+                                    Sign Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="chat">
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-warning btn-sm" id="btn-chat">
+                                    Send</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div id="message"></div>
 
         <div class="row">
 
@@ -120,6 +195,30 @@
     <script src="javascripts/bootstrap.min.js"></script>
 	<script src='javascripts/jquery-tmpl/jquery.tmpl.min.js'></script>
 	<script src='javascripts/main.js'></script>
+    <script src='javascripts/jquery.websocket.js'></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#message").createWebSocket();
+        initSubmitForm();
+    });
+
+    var initSubmitForm = function () {
+            $("#btn-chat").on('click', function () {
+                $.ajax({
+                    url: "http://192.168.1.24:8080/send",
+                    type: "GET",
+                    dataType: "json",
+                    data: {
+                        m: $("#btn-input").val(),
+                        u: 'jollen',
+                    },
+                });
+                
+                return false;
+            });
+        };
+    </script>
 </body>
 
 </html>
