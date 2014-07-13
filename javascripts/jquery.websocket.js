@@ -11,9 +11,20 @@ function onWsMessage(message) {
    var content = $('#message');
 
    if (json.type === 'message') {
-   	  //content.prepend('<p>' + json.data.message + '</p>');
+      // format timestamp
+      var data = json.data;
+      var timeString = moment.unix(data.timestamp/1000).fromNow();
+
+      var newData = {
+        message: data.message,
+        username: data.username,
+        timestamp: data.timestamp,
+
+        fromNow: timeString
+      };
+
       $('#chatTemplate')
-        .tmpl(json.data)
+        .tmpl(newData)
         .appendTo('.chat');
    }
 }
