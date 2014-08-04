@@ -13,7 +13,8 @@ app.Message = Backbone.Model.extend({
         data: {
             message: 'hello',
             timestamp: 1407132170812
-        }
+        },
+        fromNow: 'unused'
     }
 });
 
@@ -45,7 +46,10 @@ app.MessageView = Backbone.View.extend({
     // Backbone delegation
     render: function() {
         var htmlCodes = this.template(this.model.attributes);
+        var data = this.model.get('data');
+        var fromNow = moment(data.timestamp).fromNow();
         
+        this.model.set('fromNow', fromNow);
         this.$el.find('#message').prepend(htmlCodes);
     },
     createWebSocket: function() {
