@@ -84,7 +84,7 @@ t<!DOCTYPE html>
         </div>
     </header>
 
-    <!-- About Section -->
+    <!-- Post Items Section -->
     <section id="postitems" class="container content-section text-center">
 
     </section>
@@ -128,7 +128,7 @@ t<!DOCTYPE html>
                 <ul class="list-inline banner-social-buttons">
                     <% _.each(posts, function(post) {  %>
                     <li>
-                        <a href="#" class="btn btn-default btn-lg"><%= post.subject %></a>
+                        <a data-tag="postitem" data-post-id!="<%= post.id %>" href="#" class="btn btn-default btn-lg"><%= post.subject %></a>
                     </li>
                     <% }); %>
                 </ul>
