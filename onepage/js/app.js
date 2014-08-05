@@ -76,6 +76,15 @@ app.PostCollection = Backbone.Collection.extend({
 **/
 app.PostItemView = Backbone.View.extend({
     el: '#postitems',
+    events: {
+        'click [data-tag="postitem"]':  'syncUp'
+    },
+    syncUp: function(event) {
+        var me = $(event.target),
+            id = me.data('post-id');
+        
+        console.log('ID: ' + id);
+    },
     initialize: function() {
         var self = this;
         
@@ -103,8 +112,6 @@ app.PostItemView = Backbone.View.extend({
             post.fetch();
             
             self.collection.push(post);
-            
-            console.log(JSON.stringify(post.attributes));
         });
     },
     render: function() {

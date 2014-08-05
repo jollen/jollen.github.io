@@ -32,7 +32,7 @@ t<!DOCTYPE html>
     <script src="vendor/jquery/dist/jquery.min.js"></script>
     <script src="vendor/underscore/underscore.js"></script>
     <script src="vendor/backbone/backbone.js"></script>
-    <script src="js/app.js?v=0.0.9"></script>
+    <script src="js/app.js?v=0.0.10"></script>
 
 </head>
 
@@ -122,13 +122,12 @@ t<!DOCTYPE html>
 
     <!-- Underscore Template Section -->
     <script type='text/template' id='tmpl-postitem'>
-
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <ul class="list-inline banner-social-buttons">
                     <% _.each(posts, function(post) {  %>
                     <li>
-                        <a data-tag="postitem" data-post-id!="<%= post.id %>" href="#" class="btn btn-default btn-lg"><%= post.subject %></a>
+                        <a data-tag="postitem" data-post-id="<%= post.id %>" href="#" class="btn btn-default btn-lg"><%= post.subject %></a>
                     </li>
                     <% }); %>
                 </ul>
