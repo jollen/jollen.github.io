@@ -38,7 +38,7 @@ app.PostItem = Backbone.Model.extend({
 
 app.Post = Backbone.Model.extend({
     url: function() {
-        return 'http://booklog.io/1/post' + this.get('id');
+        return 'http://booklog.io/1/post/' + this.get('id');
     },
     // no good
     id: '53e04830210fc45b67000035',
