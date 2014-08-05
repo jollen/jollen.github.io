@@ -83,7 +83,7 @@ app.PostItemView = Backbone.View.extend({
         var me = $(event.target),
             id = me.data('post-id');
         
-        console.log('ID: ' + id);
+        event.preventDefault();
     },
     initialize: function() {
         var self = this;
