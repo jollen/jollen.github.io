@@ -1,0 +1,6 @@
+{
+	"strict": true,
+    "indent": 4,
+    "unused": true,
+    "undef": true 
+}
