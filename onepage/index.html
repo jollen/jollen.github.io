@@ -122,13 +122,18 @@ t<!DOCTYPE html>
 
     <!-- Underscore Template Section -->
     <script type='text/template' id='tmpl-postitem'>
-        <% _.each(posts, function(post) {  %>
+
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <a class="btn btn-primary btn-lg"><%= post.subject %></a>
+                <ul class="list-inline banner-social-buttons">
+                    <% _.each(posts, function(post) {  %>
+                    <li>
+                        <a href="#" class="btn btn-default btn-lg"><%= post.subject %></a>
+                    </li>
+                    <% }); %>
+                </ul>
             </div>
         </div>    
-        <% }); %>
     </script>
 
     <script type='text/template' id='tmpl-post'>    
