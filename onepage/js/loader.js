@@ -22,7 +22,7 @@ requirejs([
 ], function() {
     
     $(document).ready(function(){        
-        var app = OneApp.OneApp();
+        var app = OneApp.getApp();
 
         app.postItemView = new app.PostItemView();
         app.postView = new app.PostView();
