@@ -86,7 +86,7 @@ app.PostItemView = Backbone.View.extend({
 app.PostView = Backbone.View.extend({
     el: '#post',
     initialize: function() {
-		this.model = new app.PostItem();
+		this.model = new app.Post();
         this.template = _.template($('#tmpl-post').html());
         this.model.bind('change', this.render, this);
         
