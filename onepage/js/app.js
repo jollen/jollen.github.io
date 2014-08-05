@@ -8,6 +8,9 @@ var app = app || {};
 * MODELS
 **/
 app.PostItem = Backbone.Model.extend({
+    url: function() {
+        return 'http://booklog.io/1/post';
+    },
     defaults: {
         "success": true,
         "errors": [],
@@ -42,8 +45,9 @@ app.PostItemView = Backbone.View.extend({
     initialize: function() {
 		this.model = new app.PostItem();
         this.template = _.template($('#tmpl-postitem').html());
+        this.model.bind('change', this.render, this);
         
-        this.render();
+        this.model.fetch(); 
     },
     render: function() {
  		var htmlCodes = this.template(this.model.attributes);
