@@ -21,7 +21,9 @@ requirejs([
     'js/app.js'
 ], function() {
     
-    $(document).ready(function(){
+    $(document).ready(function(){        
+        var app = OneApp.OneApp();
+
         app.postItemView = new app.PostItemView();
         app.postView = new app.PostView();
     });

@@ -1,4 +1,4 @@
-(function(Backbone, $, _) {
+var OneApp = (function(Backbone, $, _) {
 	"use strict";
     
     /**
@@ -138,5 +138,9 @@
             this.$el.html(htmlCodes);
         }
     });
+    
+    return {
+        getApp: function() { return app; }
+    }
 
 }) (Backbone, $, _);
