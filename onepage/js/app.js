@@ -88,6 +88,7 @@ app.PostItemView = Backbone.View.extend({
         this.model.fetch({
             success: function(model, response, options) {	
                 // FIXME:
+                $('#status-loading').addClass('hide');
             }
         }); 
     },
