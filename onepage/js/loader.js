@@ -2,9 +2,9 @@
 requirejs.config({
     baseUrl: 'vendor/',
     paths: {
-        'jquery': 'jquery/dist/jquery.min.js',
-        'underscore': 'underscore/underscore.js',
-        'backbone': 'backbone/backbone.js'
+        'jquery': 'jquery/dist/jquery.min',
+        'underscore': 'underscore/underscore',
+        'backbone': 'backbone/backbone'
     },
     shim: {
         'backbone': {
