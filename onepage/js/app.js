@@ -40,6 +40,7 @@ app.Post = Backbone.Model.extend({
     url: function() {
         return 'http://booklog.io/1/post' + this.get('id');
     },
+    // no good
     id: '53e04830210fc45b67000035',
     defaults: {
         "success": true,
@@ -90,6 +91,7 @@ app.PostView = Backbone.View.extend({
         this.template = _.template($('#tmpl-post').html());
         this.model.bind('change', this.render, this);
         
+        this.model.set('id', '53e04830210fc45b67000035');
         this.model.fetch(); 
     },
     render: function() {
