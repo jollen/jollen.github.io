@@ -136,11 +136,13 @@ t<!DOCTYPE html>
 
     <!-- Underscore Template Section -->
     <script type='text/template' id='tmpl-postitem'>
+        <% _.each(posts, function(post) {  %>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <p><%= posts[0].subject %></p>
+                <p><%= post.subject %></p>
             </div>
         </div>    
+        <% }); %>
     </script>
     
     <!-- Footer -->
