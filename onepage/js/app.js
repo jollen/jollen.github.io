@@ -87,11 +87,14 @@ app.PostItemView = Backbone.View.extend({
         
         this.model.fetch({
             success: function(model, response, options) {	
-                self.prefetch();
+                self.prefetch();                
+                $('#status-loading').addClass('hide');
             }
         }); 
     },
     prefetch: function() {
+        var self = this;
+        
         $('[data-tag="postitem"]').each(function() {
             var me = $(this), 
                 id = me.data('post-id'),
@@ -99,7 +102,7 @@ app.PostItemView = Backbone.View.extend({
             
             post.fetch();
             
-            this.collection.push(post);
+            self.collection.push(post);
             
             console.log(JSON.stringify(post.attributes));
         });
