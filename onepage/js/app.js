@@ -12,7 +12,7 @@ var OneApp = (function(Backbone, $, _) {
     **/
     app.PostItem = Backbone.Model.extend({
         url: function() {
-            return 'http://booklog.io/1/post';
+            return 'http://localhost:3000/1/post';
         },
         defaults: {
             "success": true,
@@ -41,7 +41,7 @@ var OneApp = (function(Backbone, $, _) {
 
     app.Post = Backbone.Model.extend({
         url: function() {
-            return 'http://booklog.io/1/post/' + this.get('id');
+            return 'http://localhost:3000/1/post' + this.get('id');
         },
         // no good
         id: '',
