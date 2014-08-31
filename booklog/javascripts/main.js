@@ -1,7 +1,7 @@
 (function($) {
 	$.ajax({
 		dataType: 'json',
-		url: 'http://booklog.io/1/post',
+		url: 'http://localhost:3000/1/post',
 	    success: function(response, jqXHR, textStatus) {
 			$('#postTemplate')
 				.tmpl(response.posts)
@@ -16,7 +16,7 @@
 
 					$.ajax({
 						dataType: 'json',
-						url: 'http://booklog.io/1/post/' + id,
+						url: 'http://localhost:3000/1/post/' + id,
 						success: function(response, jqXHR, textStatus) {
 							$('#content').html('<h2>' 
 								+ response.post.content 
