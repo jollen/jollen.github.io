@@ -11,12 +11,16 @@
 
     <!-- Bootstrap core CSS -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Weather Icons -->
+    <link href="bower_components/weather-icons/css/weather-icons.min.css" rel="stylesheet">
 </head>
 
 <body>
     <script id='postTemplate' type='text/x-jquery-tmpl'>
         <div class="col-md-12">
-            <h4 class="media-heading">${temp}</h4>
+            <h4 class="media-heading">${celsius} ℃</h4>
+            <h2><i class="wi ${weatherIcon}"></i></h2>
         </div>
     </script>
 
