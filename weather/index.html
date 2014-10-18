@@ -18,12 +18,18 @@
 
 <body>
     <script id='postTemplate' type='text/x-jquery-tmpl'>
-        <div class="col-md-6 col-md-offset-3 text-center" style="background: #FF2080; color: #FFF; padding: 30px;>
+        <div class="col-md-4 col-md-offset-4 text-center" style="background: #ff2080; color: #fff; padding: 30px;>
             <p style="font-size: 3em;">${celsius} ℃</p>
             <i class="wi ${weatherIcon}" style="font-size: 3em;"></i>
         </div>
     </script>
 
+    <script id='chatTemplate' type='text/x-jquery-tmpl'>
+        <div class="col-md-4 col-md-offset-4 text-center" style="background: #8020ff; color: #fff; padding: 10px;>
+            <p style="font-size: 1.2em;">${message}, <span class="timestamp">${timestamp}</span></p>
+        </div>
+    </script>
+    
     <div class="container">
         <div class="row" id="content">
         </div>
@@ -34,7 +40,9 @@
     <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/bootstrap.min.js"></script>
 	<script src='javascripts/jquery-tmpl/jquery.tmpl.min.js'></script>
+    <script src='bower_components/moment/min/moment.min.js'></script>
 	<script src='javascripts/main.js?v=0.1'></script>
+    <script src='javascripts/chat.js'></script>
 </body>
 
 </html>

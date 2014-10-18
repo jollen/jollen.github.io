@@ -10,6 +10,8 @@ var http = require('http');
 var path = require('path');
 var hello = require('./routes/hello');
 var discussion = require('./routes/discussion');
+var chat = require('./routes/chat');
+var cors = require('cors');
 
 var app = express();
 
@@ -37,6 +39,9 @@ app.get('/user/:username', user.index);
 
 app.post('/discussion/:message', discussion.create);
 app.get('/discussion/latest/:items', discussion.read);
+
+app.get('/start', cors(), chat.start);
+app.post('/send/:message', cors(), chat.send);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

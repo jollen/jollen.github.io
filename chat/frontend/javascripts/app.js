@@ -8,20 +8,18 @@ var app = app || {};
 * MODELS
 **/
 app.Message = Backbone.Model.extend({
+    url: function() {
+         return 'http://phone-karate.codio.io:3000/start';
+    },
     defaults: {
-        type: 'message',
-        data: {
-            message: 'hello',
-            timestamp: 1407132170812
-        },
-        fromNow: 'unused'
+        data: []
     }
 });
 
 app.SubmitMessage = Backbone.Model.extend({
     // data source
     url: function() {
-        return 'http://54.186.18.78:443/send?m=' + this.get('message');
+        return 'http://phone-karate.codio.io:3000/send/' + this.get('message');
     },
     defaults: {
         message: ''
@@ -40,18 +38,20 @@ app.MessageView = Backbone.View.extend({
         
         this.template = _.template($('#tmpl-message').html());
 
-        this.render();
-        this.createWebSocket();
+        //this.render();
+        //this.createWebSocket();
+        
+        this.model.fetch();
     },
     // Backbone delegation
     render: function() {
         var data = this.model.get('data');
-        var fromNow = moment('' + data.timestamp).fromNow();
+        //var fromNow = moment('' + data.timestamp).fromNow();
         
-        this.model.set('fromNow', fromNow);
+        //this.model.set('fromNow', fromNow);
 
         var htmlCodes = this.template(this.model.attributes);
-        this.$el.find('#message').prepend(htmlCodes);
+        this.$el.find('#message').html(htmlCodes);
     },
     createWebSocket: function() {
         var div = this.$el.find('#message');
@@ -66,7 +66,7 @@ app.MessageView = Backbone.View.extend({
         }
         
          // Let us open a web socket
-         ws = new WebSocket("ws://54.186.18.78:443/start", ['echo-protocol']);
+         ws = new WebSocket("ws://phone-karate.codio.io:443/start", ['echo-protocol']);
          ws.onopen = function()
          {
              div.append("<h2>Done</h2>");

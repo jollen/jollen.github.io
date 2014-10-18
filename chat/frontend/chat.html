@@ -19,18 +19,20 @@
 <script type='text/template' id='tmpl-message'>
 <div class="container">
     <ul class="timeline">
+        <% _.each(message, function(data) { %>
         <li>
           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Jollen</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i><%= data.fromNow %></small></p>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i><%= message.timestamp %></small></p>
             </div>
             <div class="timeline-body">
-              <p><%= data.message %></p>
+              <p><%= message.message %></p>
             </div>
           </div>
         </li>
+        <% }); %>
     </ul>
 </div>
 </script>
