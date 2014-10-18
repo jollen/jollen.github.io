@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Weather</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <script id='postTemplate' type='text/x-jquery-tmpl'>
+        <div class="col-md-12">
+            <h4 class="media-heading">${temp}</h4>
+        </div>
+    </script>
+
+    <div class="container">
+        <div class="row" id="content">
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+	<script src='javascripts/jquery-tmpl/jquery.tmpl.min.js'></script>
+	<script src='javascripts/main.js?v=0.1'></script>
+</body>
+
+</html>
