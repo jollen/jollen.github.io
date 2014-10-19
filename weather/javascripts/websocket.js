@@ -22,7 +22,7 @@
 				.tmpl(messages.reverse().slice(0, 1))
 				.prependTo(self); 
             
-            if (cb && cb.onmessage === 'function') {
+            if (typeof(cb.onmessage) === 'function') {
                 cb.onmessage();
             }
         };    

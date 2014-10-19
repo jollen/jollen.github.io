@@ -1,6 +1,10 @@
 (function($) {
-    $('#send').on('click', function(event) {
+    $('[data-action=send]').on('click', function(event) {
         event.preventDefault();
+        
+        // toggle views
+        $('[data-action]').addClass('hide');
+        $('[data-action=sending]').removeClass('hide').addClass('disabled');    
         
         var message = $("#message").val();
         $.ajax({
@@ -10,6 +14,10 @@
             complete: function(jqXHR, textStatus) {
                  $('[data-status]').addClass('hide');
                  $('[data-status=sent]').removeClass('hide'); 
+                
+                // reset views
+                $('[data-action]').addClass('hide');
+                $('[data-action=send]').removeClass('hide');   
             }
         });
     });

@@ -12,6 +12,9 @@
     <!-- Bootstrap core CSS -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Font Awesome -->
+    <link href="bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    
     <!-- Weather Icons -->
     <link href="bower_components/weather-icons/css/weather-icons.min.css" rel="stylesheet">
 </head>
@@ -31,7 +34,7 @@
     </script>
     
     <div class="status">
-        <div data-status="success" class="alert alert-info hide">connected</div>
+        <div data-status="success" class="alert alert-info hide"><i class="fa fa-exclamation"></i>connected</div>
         <div data-status="error" class="alert alert-danger hide">failed</div>
         <div data-status="close" class="alert alert-warning hide">closed</div>
         <div data-status="sent" class="alert alert-info hide">message sent</div>
@@ -44,7 +47,8 @@
             <label for="message">Leave a Message</label>
             <input type="email" class="form-control" id="message" placeholder="Enter a message">
           </div>
-          <button class="btn btn-default" id="send">Send</button>
+          <button class="btn btn-default" data-action="send">Send</button>
+          <button class="btn btn-default hide" data-action="sending"><i class="fa fa-refresh fa-spin"></i></button>
         </form>
     </div>
     
@@ -67,6 +71,8 @@
     
     <!-- Removed at the final stage -->
     <!-- script src='javascripts/chat.js'></script -->
+    
+    <!-- script src='javascripts/testunit.js'></script -->
 </body>
 
 </html>
