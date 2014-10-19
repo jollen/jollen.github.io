@@ -34,10 +34,25 @@
         <div data-status="success" class="alert alert-info hide">connected</div>
         <div data-status="error" class="alert alert-danger hide">failed</div>
         <div data-status="close" class="alert alert-warning hide">closed</div>
+        <div data-status="sent" class="alert alert-info hide">message sent</div>
     </div>
+
+    
+    <div>
+        <form role="form">
+          <div class="form-group">
+            <label for="message">Leave a Message</label>
+            <input type="email" class="form-control" id="message" placeholder="Enter a message">
+          </div>
+          <button class="btn btn-default" id="send">Send</button>
+        </form>
+    </div>
+    
     
     <div class="container">
         <div class="row" id="content">
+        </div>
+        <div class="row" id="board">
         </div>
     </div>
     <!-- /.container -->
@@ -49,7 +64,9 @@
     <script src='javascripts/websocket.js'></script>
     <script src='bower_components/moment/min/moment.min.js'></script>
 	<script src='javascripts/main.js'></script>
-    <script src='javascripts/chat.js'></script>
+    
+    <!-- Removed at the final stage -->
+    <!-- script src='javascripts/chat.js'></script -->
 </body>
 
 </html>

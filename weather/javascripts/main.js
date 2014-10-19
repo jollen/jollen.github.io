@@ -1,4 +1,19 @@
 (function($) {
+    $('#send').on('click', function(event) {
+        event.preventDefault();
+        
+        var message = $("#message").val();
+        $.ajax({
+            dataType: 'json',
+            type: 'POST',
+            url: 'http://phone-karate.codio.io:3000/send/' + message,
+            complete: function(jqXHR, textStatus) {
+                 $('[data-status]').addClass('hide');
+                 $('[data-status=sent]').removeClass('hide'); 
+            }
+        });
+    });
+    
 	$.ajax({
 		dataType: 'json',
 		url: 'http://api.openweathermap.org/data/2.5/weather?q=Taipei',
@@ -17,17 +32,24 @@
             // Celsius
             obj.celsius = parseInt(response.main.temp - 273.15);
             
-            
             data.push(obj);
             
 			$('#postTemplate')
 				.tmpl(data)
-				.appendTo('#content');
-            
-            $('#weather-icon').addClass('wi-day-cloudy');
+				.appendTo('#content');            
 	    },
 	    complete: function(jqXHR, textStatus) {
-            $(document).createWebSocket();
+            $('#board').createWebSocket({
+                // SPA Principle: use callback
+                onmessage: function() {
+                    $('.timestamp').each(function() {
+                        var me = $(this);
+                        var timestamp = me.html();
+
+                        me.html(moment(timestamp).fromNow());
+                    });
+                }
+            });
 	    }
 	});
 }) ($);

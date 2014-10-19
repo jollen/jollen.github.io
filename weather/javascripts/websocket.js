@@ -1,6 +1,8 @@
 
-(function() {
-    $.fn.createWebSocket = function() {
+(function($) {
+    $.fn.createWebSocket = function(cb) {
+        var self = this;
+        
         var ws = new WebSocket("ws://phone-karate.codio.io:3000/", "echo-protocol"); 
         ws.onopen = function(evt) {
              $('[data-status]').addClass('hide');
@@ -18,10 +20,13 @@
             var messages = JSON.parse(evt.data);
 			$('#chatTemplate')
 				.tmpl(messages.reverse().slice(0, 1))
-				.appendTo('#content');  
+				.prependTo(self); 
+            
+            if (cb && cb.onmessage === 'function') {
+                cb.onmessage();
+            }
         };    
     }; 
-}) ();
-
+}) ($);
 
 
