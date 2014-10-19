@@ -30,6 +30,12 @@
         </div>
     </script>
     
+    <div class="status">
+        <div data-status="success" class="alert alert-info hide">connected</div>
+        <div data-status="error" class="alert alert-danger hide">failed</div>
+        <div data-status="close" class="alert alert-warning hide">closed</div>
+    </div>
+    
     <div class="container">
         <div class="row" id="content">
         </div>
@@ -40,8 +46,9 @@
     <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/bootstrap.min.js"></script>
 	<script src='javascripts/jquery-tmpl/jquery.tmpl.min.js'></script>
+    <script src='javascripts/websocket.js'></script>
     <script src='bower_components/moment/min/moment.min.js'></script>
-	<script src='javascripts/main.js?v=0.1'></script>
+	<script src='javascripts/main.js'></script>
     <script src='javascripts/chat.js'></script>
 </body>
 
