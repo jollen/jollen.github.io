@@ -9,7 +9,7 @@ var app = app || {};
 **/
 app.Message = Backbone.Model.extend({
     url: function() {
-         return 'http://localhost:3000/1/post' 
+         return 'http://test.booklog.io/1/post' 
                     + ( this.id === null ? '' : '/' + this.id );
     },
     id: null,
