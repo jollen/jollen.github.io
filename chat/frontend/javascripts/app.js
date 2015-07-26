@@ -66,7 +66,7 @@ app.MessageView = Backbone.View.extend({
         }
         
          // Let us open a web socket
-         ws = new WebSocket("ws://phone-karate.codio.io:443/start", ['echo-protocol']);
+         ws = new WebSocket("ws://phone-karate.codio.io:3000/start", ['echo-protocol']);
          ws.onopen = function()
          {
              div.append("<h2>Done</h2>");
