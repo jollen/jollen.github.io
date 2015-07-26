@@ -39,7 +39,7 @@ app.MessageView = Backbone.View.extend({
         this.template = _.template($('#tmpl-message').html());
 
         //this.render();
-        //this.createWebSocket();
+        this.createWebSocket();
         
         this.model.fetch();
     },
