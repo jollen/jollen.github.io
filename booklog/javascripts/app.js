@@ -17,7 +17,7 @@ app.Message = Backbone.Model.extend({
         success: false,
         errfor: {},
         posts: [],
-        post: {},
+        post: [],
         title: '',
         message: ''
     }
