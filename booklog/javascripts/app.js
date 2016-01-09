@@ -69,7 +69,7 @@ app.FormView = Backbone.View.extend({
         
         this.model.save({
             title: title,
-            content: content
+            message: content
         }, { 
             success: function(model, response, options) {
                 app.contentView.model.fetch();
