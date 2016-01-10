@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Four Column Portfolio Template for Bootstrap 3</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS for the '4 Col Portfolio' Template -->
+    <link href="stylesheets/4-col-portfolio.css" rel="stylesheet">
+
+    <style>
+      #map {
+        background: #EEE;
+        height: 480px;
+        width: 80%;
+        margin: 100px auto 0 auto;
+        padding: 0;
+      }
+    </style>
+</head>
+
+<body>
+<script id='post-list' type='text/template'>
+    <% _.each(posts, function(post) { %>
+    <div class="col-md-4 portfolio-item">
+        <a href="portfolio-item.html">
+            <img class="img-responsive dp img-circle" src="http://lorempixel.com/180/180/">
+        </a>
+	        <h4 class="media-heading"><%= post.title %></h4>
+	        <button id="subject" data-id="<%= post._id %>" class="btn btn-success">Read More</button>
+    </div>
+    <% }); %>
+</script>
+
+<script id='post-single' type='text/template'>
+    <div class="col-md-12 portfolio-item">
+            <h2 class="media-heading"><%= post[0].title %></h2>
+            <h4><%= post[0].message %></h4>
+    </div>
+</script>
+
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://startbootstrap.com">My Booklog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#about">關於</a>
+                    </li>
+                    <li><a href="#services">所有文章</a>
+                    </li>
+                    <li><a href="#contact">張貼文章</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div id="map"><h2>Weather</h2></div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Jollen's 最新文章
+                    <small>Showcase Your Work</small>
+                </h1>
+            </div>
+
+        </div>
+
+        <div class="row" id="content">
+
+        </div>
+
+        <hr>
+
+        <div class="container">
+        	<div class="row clearfix">
+        		<div id="form" class="col-md-8 column">
+        			<form method="POST" role="form" action="http://localhost:3000/1/post">
+        				<div class="form-group">
+        					 <label for="exampleInputEmail1">標題</label><input type="text" class="form-control" id="subject" name="subject" />
+        				</div>
+                        <div class="form-group">
+                             <label for="exampleInputEmail1">內文</label><textarea class="form-control" id="content" name="content" rows="10" placeholder="輸入文章" /></textarea>
+                        </div>
+        				<button type="submit" id="save-post" class="btn btn-default">儲存</button>
+        			</form>
+        		</div>
+        		<div class="col-md-4 column">
+        			<div class="page-header">
+        				<h1>
+        					<small><span>張貼文章</span></small>
+        				</h1>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+
+        <div class="row text-center">
+
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a>
+                    </li>
+                    <li class="active"><a href="#">1</a>
+                    </li>
+                    <li><a href="#">2</a>
+                    </li>
+                    <li><a href="#">3</a>
+                    </li>
+                    <li><a href="#">4</a>
+                    </li>
+                    <li><a href="#">5</a>
+                    </li>
+                    <li><a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Company 2013</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- JavaScript -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACnXBrsGMB7iGukptA1OS6rBjYVH4gDy8&signed_in=true"></script>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="vendor/underscore/underscore-min.js"></script>
+    <script src="vendor/backbone/backbone-min.js"></script>
+	<script src='javascripts/app.js'></script>
+    <script src='javascripts/map.js'></script>
+</body>
+
+</html>
