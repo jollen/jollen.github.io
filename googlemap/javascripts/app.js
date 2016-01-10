@@ -52,33 +52,6 @@ app.ContentView = Backbone.View.extend({
     }
 });
 
-app.FormView = Backbone.View.extend({
-    el: '#form',
-    events: {
-        'click #save-post': 'save'
-    },
-    // constructor
-    initialize: function() {
-        this.model = new app.Message();        
-    },
-    save: function(e) {
-        e.preventDefault();
-
-        var title = this.$el.find('input[name="subject"]').val();
-        var content = this.$el.find('textarea[name="content"]').val();
-        
-        this.model.save({
-            title: title,
-            message: content
-        }, { 
-            success: function(model, response, options) {
-                app.contentView.model.fetch();
-            }
-        });
-    }
-});
-
 $(document).ready(function(){
     app.contentView = new app.ContentView();
-    app.formView = new app.FormView();
 });
