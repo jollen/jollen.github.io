@@ -9,17 +9,21 @@ var app = app || {};
 **/
 app.Message = Backbone.Model.extend({
     url: function() {
-         return 'http://localhost:3000/1/post' 
-                    + ( this.id === null ? '' : '/' + this.id );
+         return 'http://api.openweathermap.org/data/2.5/weather?q=Taipei&APPID=2ab10d1d7c261f5cb373916cc1cf107f';
     },
     id: null,
     defaults: {
         success: false,
         errfor: {},
-        posts: [],
-        post: [],
-        title: '',
-        message: ''
+
+        coord: {
+          lon: 0,
+          lat: 0
+        },
+        main: {
+            temp: 0,
+            humidity: 0
+        }
     }
 });
 
@@ -27,28 +31,34 @@ app.Message = Backbone.Model.extend({
 * VIEWS
 **/
 app.ContentView = Backbone.View.extend({
-    el: '#content',
+    el: '#map',
     events: {
-        'click #subject': 'read'
     },
     // constructor
     initialize: function() {
         this.model = new app.Message();
         this.model.bind('change', this.render, this);
-        this.template = _.template($('#post-list').html());
 
         this.model.fetch();
     },
     render: function() {
-        var html = this.template(this.model.attributes);
-        this.$el.html(html);
-    },
-    read: function(e) {
-        var id = $(e.target).data('id');
-        var self = this;
-        this.model.id = id;
-        this.template = _.template($('#post-single').html());
-        this.model.fetch();
+        // get object from model
+        var coord = this.model.get('coord');
+
+        var myLatLng = {lat: coord.lat, lng: coord.lon};
+
+        var temp = this.model.get('main').temp - 273.15;
+
+        var map = new google.maps.Map(this.el, {
+          zoom: 16,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Temp: ' + temp
+        });
     }
 });
 
