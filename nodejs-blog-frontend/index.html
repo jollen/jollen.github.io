@@ -115,7 +115,8 @@
 
     <script>
     $.ajax({
-        url: "https://localhost:5000/1/post"
+        url: "https://localhost:5000/1/post",
+        crossDomain: true
     })
     .done(function( data ) {
         console.log (data)
