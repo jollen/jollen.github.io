@@ -118,7 +118,8 @@
         url: "http://localhost:5000/1/post"
     })
     .done(function( data ) {
-        console.log (data)
+        console.log (data);
+        
         var tmpl = $.templates("#myTemplate");
         var html = tmpl.render({
             posts: data
